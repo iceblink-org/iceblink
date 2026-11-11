@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iceblink"
+version = "0.1.0"
+description = "Local activation monitoring, policy and agent control"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.2,<3", "safetensors>=0.6,<1"]
+
+[project.optional-dependencies]
+gpu = ["nnsight[vllm]==0.8.2", "vllm==0.27.1", "torch==2.13.0", "transformers==5.22.2"]
+harness = ["smolagents==1.26.0"]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+iceblink = "iceblink.cli:main"
+iceblink-gpu-proof = "iceblink.integrations.gpu_proof:main"
+iceblink-demo = "iceblink.integrations.demo:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["gpu: requires allocated GPU and explicit model download"]

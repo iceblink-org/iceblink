@@ -1,0 +1,11 @@
+{
+  "detectors": [{"type": "keywords"}],
+  "policies": [
+    {"name": "control-a", "required": ["text-keywords"], "rules": [{"detector": "text-keywords", "threshold": 1, "mode": "a"}]},
+    {"name": "control-b", "required": ["text-keywords"], "rules": [{"detector": "text-keywords", "threshold": 1, "mode": "b"}]},
+    {"name": "control-c", "required": ["text-keywords"], "rules": [{"detector": "text-keywords", "threshold": 1, "mode": "c"}]},
+    {"name": "control-d", "required": ["text-keywords"], "rules": [{"detector": "text-keywords", "threshold": 1, "mode": "d"}]}
+  ],
+  "limits": {"heartbeat_seconds": 2.5, "processing_seconds": 45, "drain_seconds": 2},
+  "retention_days": 30
+}

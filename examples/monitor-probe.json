@@ -1,0 +1,12 @@
+{
+  "detectors": [
+    {"type": "artifact", "path": "experiment/activation-probe"},
+    {"type": "artifact", "path": "experiment/text-baseline"}
+  ],
+  "policies": [
+    {"name": "learned-a", "required": ["activation-probe", "text-baseline"],
+     "rules": [{"detector": "activation-probe", "mode": "a"}]}
+  ],
+  "limits": {"heartbeat_seconds": 2.5, "processing_seconds": 45, "drain_seconds": 2},
+  "retention_days": 30
+}
